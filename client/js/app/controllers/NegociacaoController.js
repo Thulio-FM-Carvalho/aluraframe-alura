@@ -10,24 +10,39 @@ class NegociacaoController {
         this._inputData = $("#data");
         this._inputQuantidade = $("#quantidade");
         this._inputValor = $("#valor");
+        this._listaNegociacoes = new ListaNegociacoes(); //Adicioando no construtor uma lista de negociações, agora é um propriedade
     }
 
     //Criando o método adiciona capturando os dados e criando uma negociação
     adiciona(evento) {
+        
         event.preventDefault(); //Cancelando o comportamento padrão pra que a página não recaregue
 
-            let data = DateHelper.textoParaData(this._inputData.value);
+        this._listaNegociacoes.adiciona(this._criaNegociacao()); //Adicionando a negociação em uma lista de negociações 
 
-            //Instanciando a negociação
-            let negociacao = new Negociacao(
-                data,
-                this._inputQuantidade.value,
-                this._inputValor.value
-            );
+        this._limpaFormulario(); //Limpando formulário
 
-            console.log(negociacao);
-            console.log(DateHelper.dataParaTexto(negociacao.data));
-            
+        console.log(this._listaNegociacoes.negociacoes);        
+    }
+    
+    //Método reponsável por criar negociação
+    _criaNegociacao(){
         
+        let data = DateHelper.textoParaData(this._inputData.value);
+
+        return new Negociacao(
+            data,
+            this._inputQuantidade.value,
+            this._inputValor.value
+        )
+    }
+
+    //Método reponsável por limpar formulário
+    _limpaFormulario(){
+        this._inputData.value = "";
+        this._inputQuantidade.value = 1;
+        this._inputValor.value = 0.0;
+
+        this._inputData.focus();
     }
 }
