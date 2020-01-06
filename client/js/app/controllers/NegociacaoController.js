@@ -11,6 +11,13 @@ class NegociacaoController {
         this._inputQuantidade = $("#quantidade");
         this._inputValor = $("#valor");
         this._listaNegociacoes = new ListaNegociacoes(); //Adicioando no construtor uma lista de negociações, agora é um propriedade
+       
+        //Adicionando no construtor a view, fazendo dela uma propriedade
+        //Passando como parâmetro o elemento do DOM, que é a <div><\div> 
+        this._negociacoesView = new NegociacoesView($("#negociacoesView")); 
+        
+        //Função que atualizar e mostra a view
+        this._negociacoesView.update();
     }
 
     //Criando o método adiciona capturando os dados e criando uma negociação
