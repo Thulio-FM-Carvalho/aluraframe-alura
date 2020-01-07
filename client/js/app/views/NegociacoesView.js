@@ -6,7 +6,7 @@ class NegociacoesView {
         this._elemento = elemento;
     }
 
-    _template() {
+    _template(model) {
         return `
         <table class="table table-hover table-bordered">
             <thead>
@@ -19,9 +19,30 @@ class NegociacoesView {
             </thead>
             
             <tbody>
+
+                //Para cada negociação, cria uma tr e td
+                //.join() = colocando os elementos dentro de uma string
+                ${model.negociacoes.map(function(negociacoes){
+                    return `
+                        <tr>
+                            <td>${DateHelper.dataParaTexto(negociacoes.data)}</td>
+                            <td>${negociacoes.quantidade}</td>
+                            <td>${negociacoes.valor}</td>
+                            <td>${negociacoes.volume}</td>
+                        </tr>
+                        `
+                }).join("")}
+
             </tbody>
-            
+                <td colspan="3"></td>
+                <td>${
+                        model.negociacoes.reduce(function(total, negociacoes){
+                            return total + negociacoes.volume;
+                        }, 0.0)
+                    }
+                </td>
             <tfoot>
+
             </tfoot>
         </table>
         `;
@@ -29,7 +50,8 @@ class NegociacoesView {
 
     //innerHTML = Converte template string em elementos do DOM
     //Essa função é responsável por converter o html que está na função _template e  atribuir os valores no _elemento(propriedade)
-    update(){
-        this._elemento.innerHTML = this._template();
+    //update recebe um model (moedelo)
+    update(model){
+        this._elemento.innerHTML = this._template(model);
     }
 }

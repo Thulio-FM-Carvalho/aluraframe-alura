@@ -16,8 +16,8 @@ class NegociacaoController {
         //Passando como parâmetro o elemento do DOM, que é a <div><\div> 
         this._negociacoesView = new NegociacoesView($("#negociacoesView")); 
         
-        //Função que atualizar e mostra a view
-        this._negociacoesView.update();
+        //Função que atualiza e mostra a view e coloca uma lista de negociações nela
+        this._negociacoesView.update(this._listaNegociacoes);
     }
 
     //Criando o método adiciona capturando os dados e criando uma negociação
@@ -26,10 +26,11 @@ class NegociacaoController {
         event.preventDefault(); //Cancelando o comportamento padrão pra que a página não recaregue
 
         this._listaNegociacoes.adiciona(this._criaNegociacao()); //Adicionando a negociação em uma lista de negociações 
-
-        this._limpaFormulario(); //Limpando formulário
-
-        console.log(this._listaNegociacoes.negociacoes);        
+        
+        //Função que atualiza e mostra a view e coloca uma lista de negociações nela
+        this._negociacoesView.update(this._listaNegociacoes);
+        
+        this._limpaFormulario(); //Limpando formulário       
     }
     
     //Método reponsável por criar negociação
