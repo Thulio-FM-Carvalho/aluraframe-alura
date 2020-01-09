@@ -18,6 +18,10 @@ class NegociacaoController {
         
         //Função que atualiza e mostra a view e coloca uma lista de negociações nela
         this._negociacoesView.update(this._listaNegociacoes);
+
+        this._mensagem = new Mensagem();
+        this._mensagemView = new MensagemView($("#mensagemView"));
+        this._mensagemView.update(this._mensagem);
     }
 
     //Criando o método adiciona capturando os dados e criando uma negociação
@@ -26,6 +30,9 @@ class NegociacaoController {
         event.preventDefault(); //Cancelando o comportamento padrão pra que a página não recaregue
 
         this._listaNegociacoes.adiciona(this._criaNegociacao()); //Adicionando a negociação em uma lista de negociações 
+
+        this._mensagem.texto = "Negociação adicionada com sucesso!"; //Mensagem de notificação após adicionar uma negociação
+        this._mensagemView.update(this._mensagem);
         
         //Função que atualiza e mostra a view e coloca uma lista de negociações nela
         this._negociacoesView.update(this._listaNegociacoes);

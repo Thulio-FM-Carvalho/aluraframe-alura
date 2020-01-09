@@ -1,9 +1,8 @@
 //Classe responsável por mostrar os resultados do model, que é a negociação
-class NegociacoesView {
-    
-    //Recebendo como argumento o elemento do DOM que é a <div><\div>
-    constructor(elemento) {
-        this._elemento = elemento;
+class NegociacoesView extends View {
+
+    constructor(elemento){
+        super(elemento);
     }
 
     _template(model) {
@@ -48,10 +47,5 @@ class NegociacoesView {
         `;
     }
 
-    //innerHTML = Converte template string em elementos do DOM
-    //Essa função é responsável por converter o html que está na função _template e  atribuir os valores no _elemento(propriedade)
-    //update recebe um model (moedelo)
-    update(model){
-        this._elemento.innerHTML = this._template(model);
-    }
+    
 }

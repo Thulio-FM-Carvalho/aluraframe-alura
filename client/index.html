@@ -10,6 +10,10 @@
 <body class="container">
     
     <h1 class="text-center">Negociações</h1>
+
+    <!-- Div adicionada para dizer onde vai ser jogada a mensagem  -->
+    <div id="mensagemView"></div>
+
     <!-- Adicionado onsubmit para usar a classe controller -->
     <form class="form" onsubmit="negociacaoController.adiciona(event)">
         
@@ -49,7 +53,11 @@
     <script src="js/app/models/Negociacao.js"></script>
     <script src="js/app/controllers/NegociacaoController.js"></script>
     <script src="js/app/models/ListaNegociacoes.js"></script>
+    <script src="js/app/views/View.js"></script>
     <script src="js/app/views/NegociacoesView.js"></script>
+    <script src="js/app/models/Mensagem.js"></script>
+    <script src="js/app/views/MensagemView.js"></script>
+    
     <script>
         
         //var = Acessa as variáveis fora do escopo do bloco onde foi definida
