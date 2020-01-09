@@ -15,6 +15,7 @@
     <div id="mensagemView"></div>
 
     <!-- Adicionado onsubmit para usar a classe controller -->
+    <!-- Para o onsubmit funcionar, devemos instanciar a classe NegociacaoController no HTML -->
     <form class="form" onsubmit="negociacaoController.adiciona(event)">
         
         <div class="form-group">
@@ -59,7 +60,6 @@
     <script src="js/app/views/MensagemView.js"></script>
     
     <script>
-        
         //var = Acessa as variáveis fora do escopo do bloco onde foi definida
         //let = Acessa as variáveis somente dentro do escopo do bloco onde foi definida
         

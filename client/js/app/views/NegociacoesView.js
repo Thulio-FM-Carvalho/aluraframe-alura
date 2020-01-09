@@ -5,6 +5,8 @@ class NegociacoesView extends View {
         super(elemento);
     }
 
+    //Função responsável por mostrar os dados arrumados em uma tabela
+    //template recebe um modelo
     _template(model) {
         return `
         <table class="table table-hover table-bordered">
@@ -19,8 +21,9 @@ class NegociacoesView extends View {
             
             <tbody>
 
-                //Para cada negociação, cria uma tr e td
-                //.join() = colocando os elementos dentro de uma string
+                --> Para cada negociação, cria uma tr e td <!--
+                --> .join() = colocando os elementos dentro de uma string <!--
+
                 ${model.negociacoes.map(function(negociacoes){
                     return `
                         <tr>

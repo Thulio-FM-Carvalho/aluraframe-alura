@@ -8,8 +8,8 @@ class View {
 
     //innerHTML = Converte template string em elementos do DOM
     //Essa função é responsável por converter o html que está na função _template e  atribuir os valores no _elemento(propriedade)
-    //update recebe um model (modelo)
-    update(model){
-        this._elemento.innerHTML = this._template(model);
+    //update recebe um modelo (ListaNeciacoes)
+    update(modelo){
+        this._elemento.innerHTML = this._template(modelo); //_template também recebe um modelo (ListaNeciacoes)
     }
 }
