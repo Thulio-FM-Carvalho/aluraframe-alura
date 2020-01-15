@@ -37,6 +37,9 @@ class NegociacaoController {
         //Função que atualiza e mostra a view e coloca uma lista de negociações nela
         this._negociacoesView.update(this._listaNegociacoes);
         
+        console.log(this._listaNegociacoes.negociacoes);
+        
+
         this._limpaFormulario(); //Limpando formulário       
     }
     
